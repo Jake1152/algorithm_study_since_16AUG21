@@ -5,7 +5,7 @@ using namespace std;
 int result=-1;
 
 vector<int> getKMPJump(string str) {
-    vector<int> answer = vector<int>(str.size(), -1);
+    vector<int> junp = vector<int>(str.size(), -1);
     int i = 1, j = 0;
     for (; i < str.size(); i++) {
         if (str[0] == str[i]) break;
@@ -13,13 +13,13 @@ vector<int> getKMPJump(string str) {
     for (; i < str.size(); i++,j++) {
         if (str[i] == str[j]){
             result = max(result, j);
-            answer[i] = j;
+            jump[i] = j;
         }
         else {
             if (j == 0) j = -1;
             else{
                 i--, j--;
-                j = answer[j];
+                j = jump[j];
             }
         }
     }
@@ -37,3 +37,5 @@ int main()
     cout << result+1;
     return 0;
 }
+//ababcabababc
+//aabaabcaabaabcd
