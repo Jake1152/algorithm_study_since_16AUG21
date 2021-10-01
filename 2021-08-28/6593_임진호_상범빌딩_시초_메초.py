@@ -1,5 +1,7 @@
 from collections import deque
+from sys import stdin
 
+input = stdin.readline
 results = []
 
 def find_s(layer, row, col):
